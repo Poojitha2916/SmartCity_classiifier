@@ -1,20 +1,20 @@
 import streamlit as st
-import tensorflow as tf
 import numpy as np
 from PIL import Image
+import tensorflow as tf
 
 st.set_page_config(page_title="Smart City Complaint Classifier")
+
 st.title("🏙 Smart City Complaint Classifier")
 
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model("smart_city_model.h5")
-    return model
+    return tf.keras.models.load_model("my_custom_model_name.h5")
 
 model = load_model()
 
-# IMPORTANT: Replace with your actual class order
-class_names = ['Garbage', 'Roads', 'Water', 'Electricity']
+# IMPORTANT: Change class names according to your model
+class_names = ["Garbage", "Roads", "Water", "Electricity"]
 
 uploaded_file = st.file_uploader("Upload Complaint Image", type=["jpg","png","jpeg"])
 
